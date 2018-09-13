@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1>Reverse</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>String</h4>
+        <input type="text" v-model="string">
+      </div>
+      <div class="col-md-6">
+        <h4>Reversed String</h4>
+        <div>
+          {{ reverseString }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      string: ''
+    }
+  },
+  computed: {
+    reverseString: function() {
+      return this.string.split('').reverse().join('')
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
